@@ -1,0 +1,6 @@
+type: object
+properties:
+  price:
+    type: string
+  quantity:
+    type: string

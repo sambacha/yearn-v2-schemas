@@ -1,0 +1,9 @@
+type: object
+properties:
+  error:
+    type: object
+    properties:
+      codespace:
+        type: integer
+      code:
+        type: integer

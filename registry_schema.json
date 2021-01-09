@@ -1,0 +1,142 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "RegistryContract": {
+            "properties": {
+                "_methodABIIndex": {
+                    "additionalProperties": {
+                        "type": "number"
+                    },
+                    "type": "object"
+                },
+                "_subscriptionManager": {
+                }
+            },
+            "type": "object"
+        },
+        "RegistryEventArgs": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/RegistryNewReleaseEventArgs"
+                },
+                {
+                    "$ref": "#/definitions/RegistryNewVaultEventArgs"
+                },
+                {
+                    "$ref": "#/definitions/RegistryNewExperimentalVaultEventArgs"
+                },
+                {
+                    "$ref": "#/definitions/RegistryNewGovernanceEventArgs"
+                },
+                {
+                    "$ref": "#/definitions/RegistryVaultTaggedEventArgs"
+                }
+            ]
+        },
+        "RegistryEvents": {
+            "enum": [
+                "NewExperimentalVault",
+                "NewGovernance",
+                "NewRelease",
+                "NewVault",
+                "VaultTagged"
+            ],
+            "type": "string"
+        },
+        "RegistryNewExperimentalVaultEventArgs": {
+            "properties": {
+                "api_version": {
+                    "type": "string"
+                },
+                "deployer": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                },
+                "vault": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RegistryNewGovernanceEventArgs": {
+            "properties": {
+                "governance": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RegistryNewReleaseEventArgs": {
+            "properties": {
+                "api_version": {
+                    "type": "string"
+                },
+                "release_id": {
+                    "$ref": "#/definitions/default"
+                },
+                "template": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RegistryNewVaultEventArgs": {
+            "properties": {
+                "api_version": {
+                    "type": "string"
+                },
+                "deployment_id": {
+                    "$ref": "#/definitions/default"
+                },
+                "token": {
+                    "type": "string"
+                },
+                "vault": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RegistryVaultTaggedEventArgs": {
+            "properties": {
+                "tag": {
+                    "type": "string"
+                },
+                "vault": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "default": {
+            "properties": {
+                "_isBigNumber": {
+                    "description": "Used internally to identify a BigNumber instance.",
+                    "enum": [
+                        true
+                    ],
+                    "type": "boolean"
+                },
+                "c": {
+                    "description": "The coefficient of the value of this BigNumber, an array of base 1e14 integer numbers, or null.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "e": {
+                    "description": "The exponent of the value of this BigNumber, an integer number, -1000000000 to 1000000000, or null.",
+                    "type": "number"
+                },
+                "s": {
+                    "description": "The sign of the value of this BigNumber, -1, 1, or null.",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
+

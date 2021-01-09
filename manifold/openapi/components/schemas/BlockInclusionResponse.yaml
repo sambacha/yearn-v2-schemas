@@ -1,0 +1,11 @@
+type: object
+properties:
+  block_inclusion:
+    type: object
+    properties:
+      block_number:
+        type: string
+      transaction_hash:
+        type: string
+      block_timestamp:
+        type: number

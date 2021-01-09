@@ -1,0 +1,14 @@
+type: object
+properties:
+  block_number:
+    type: string
+  market_id:
+    type: string
+  bids:
+    type: array
+    items:
+      $ref: ./PriceQuantity.yaml
+  asks:
+    type: array
+    items:
+      $ref: ./PriceQuantity.yaml

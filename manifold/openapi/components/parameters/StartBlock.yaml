@@ -1,0 +1,6 @@
+in: query
+name: start_block
+required: false
+description: The block to start counting from.
+schema:
+  type: integer

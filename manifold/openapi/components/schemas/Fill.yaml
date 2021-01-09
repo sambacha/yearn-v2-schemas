@@ -1,0 +1,21 @@
+type: object
+allOf:
+  - $ref: ./BlockInclusionResponse.yaml
+properties:
+  quantity_filled:
+    type: string
+  quantity_unfilled:
+    type: string
+  direction:
+    type: string
+    enum:
+      - BID
+      - ASK
+  order_id:
+    type: string
+  pair:
+    type: string
+  price:
+    type: string
+  owner:
+    type: string

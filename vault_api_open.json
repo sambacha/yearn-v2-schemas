@@ -1,0 +1,107 @@
+{
+  "definitions": {
+    "VaultAPIApprovalEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "owner": {
+          "nullable": false,
+          "type": "string"
+        },
+        "spender": {
+          "nullable": false,
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/default"
+        }
+      },
+      "type": "object"
+    },
+    "VaultAPIContract": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "_methodABIIndex": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "nullable": false,
+          "type": "object"
+        },
+        "_subscriptionManager": {}
+      },
+      "type": "object"
+    },
+    "VaultAPIEventArgs": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/VaultAPIApprovalEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultAPITransferEventArgs"
+        }
+      ]
+    },
+    "VaultAPIEvents": {
+      "enum": [
+        "Approval",
+        "Transfer"
+      ],
+      "nullable": false,
+      "type": "string"
+    },
+    "VaultAPITransferEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "from": {
+          "nullable": false,
+          "type": "string"
+        },
+        "to": {
+          "nullable": false,
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/default"
+        }
+      },
+      "type": "object"
+    },
+    "default": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "_isBigNumber": {
+          "description": "Used internally to identify a BigNumber instance.",
+          "enum": [
+            true
+          ],
+          "nullable": false,
+          "type": "boolean"
+        },
+        "c": {
+          "description": "The coefficient of the value of this BigNumber, an array of base 1e14 integer numbers, or null.",
+          "items": {
+            "nullable": false,
+            "type": "number"
+          },
+          "nullable": false,
+          "type": "array"
+        },
+        "e": {
+          "description": "The exponent of the value of this BigNumber, an integer number, -1000000000 to 1000000000, or null.",
+          "nullable": false,
+          "type": "number"
+        },
+        "s": {
+          "description": "The sign of the value of this BigNumber, -1, 1, or null.",
+          "nullable": false,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

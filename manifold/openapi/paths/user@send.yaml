@@ -1,0 +1,26 @@
+post:
+  summary: Transfers Funds
+  tags:
+    - user
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            to:
+              type: string
+            amount:
+              type: string
+            asset_id:
+              type: string
+  responses:
+    '200':
+      description: Status of the transfer.
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: ../components/schemas/BlockInclusionResponse.yaml

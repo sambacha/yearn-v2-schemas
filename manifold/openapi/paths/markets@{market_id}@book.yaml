@@ -1,0 +1,17 @@
+get:
+  summary: Gets all open order at latest block by market
+  tags:
+    - market
+  parameters:
+    - in: path
+      name: market_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: The batch state.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Spread.yaml

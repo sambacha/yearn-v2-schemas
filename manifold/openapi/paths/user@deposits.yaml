@@ -1,0 +1,33 @@
+post:
+  summary: Registers a MEV deposit on the YCabal.
+  tags:
+    - user
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            asset_id:
+              type: string
+              description: The asset ID deposited.
+            quantity:
+              type: string
+              description: The amount of the asset deposited.
+            cabal_chain_id:
+              type: string
+              enum:
+                - ETH
+            cabal_chain_transaction_hash:
+              type: string
+              description: The transaction hash of the deposit on the MEV.
+  responses:
+    '200':
+      description: Deposit successfully initiated.
+      content:
+        application/json:
+          schema:
+            type: object
+            allOf:
+              - $ref: ../components/schemas/BlockInclusionResponse.yaml

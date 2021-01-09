@@ -1,0 +1,30 @@
+type: object
+properties:
+  beneficiary:
+    type: string
+    description: >-
+      The address of the recipient who will unlock funds on the remote chain.
+      Hex-encoded.
+  merkle_proof:
+    type: string
+    description: The Merkle proof required to unlock funds on the MEV.
+  merkle_leaf:
+    type: string
+    description: The Merkle leaf hash of the withdrawal.
+  asset_id:
+    type: string
+    description: The ID of the cleared asset to be withdrawn.
+  burn_id:
+    type: string
+    description: The ID of the underlying burn used to initiate this withdrawal.
+  quantity:
+    type: string
+    description: >-
+      The amount of the cleared asset to withdraw, as represented in the asset's
+      base units.
+  initiated_block:
+    type: number
+    description: The block number when this withdrawal was initiated.
+  owner:
+    type: string
+    description: The address whose funds are being withdrawn.

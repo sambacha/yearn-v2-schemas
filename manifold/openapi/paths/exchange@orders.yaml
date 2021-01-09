@@ -1,0 +1,44 @@
+post:
+  summary: Posts an order. Funds will be immediately debited.
+  tags:
+    - exchange
+  security:
+    - CSRFToken: []
+    - SessionCookie: []
+    - OTP: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/OrderCreationRequest.yaml
+  responses:
+    '204':
+      description: Order successfully posted.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OrderCreationResponse.yaml
+put:
+  summary: >-
+    Modifies an existing order. Funds will immediately debited if the quantity
+    increases, or credited if the quantity decreases.
+  tags:
+    - exchange
+  security:
+    - CSRFToken: []
+    - SessionCookie: []
+    - OTP: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Order.yaml
+  responses:
+    '200':
+      description: Order successfully modified.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OrderCreationResponse.yaml

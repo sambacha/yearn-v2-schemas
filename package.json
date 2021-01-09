@@ -1,0 +1,27 @@
+{
+  "name": "yearn-v2-schemas",
+  "version": "1.0.0",
+  "description": "> JSON Schemas for Yearn Finance",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sambacha/yearn-v2-schemas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sambacha/yearn-v2-schemas/issues"
+  },
+  "homepage": "https://github.com/sambacha/yearn-v2-schemas#readme",
+  "devDependencies": {
+    "apikana": "^0.9.18"
+  },
+  "dependencies": {
+    "json-schema-to-openapi-schema": "^0.4.0",
+    "json-to-openapi": "^1.0.1"
+  }
+}

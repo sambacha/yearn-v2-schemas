@@ -1,0 +1,3 @@
+allOf:
+  - $ref: ./BlockInclusionResponse.yaml
+  - $ref: ./Order.yaml

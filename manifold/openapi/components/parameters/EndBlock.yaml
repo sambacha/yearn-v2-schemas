@@ -1,0 +1,6 @@
+in: query
+name: end_block
+required: false
+description: The block to end counting at.
+schema:
+  type: integer

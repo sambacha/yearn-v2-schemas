@@ -1,0 +1,30 @@
+get:
+  summary: Daily Price Stats
+  tags:
+    - market
+  parameters:
+    - in: path
+      name: market_id
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: The stats.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              pair:
+                type: string
+              volume:
+                type: string
+              change:
+                type: string
+              last:
+                type: string
+              high:
+                type: string
+              low:
+                type: string

@@ -1,0 +1,74 @@
+openapi: 3.0.0
+info:
+  title: Manifold REST API
+  version: 0.0.1
+  description: |-
+    # Authentication
+
+    <!-- ReDoc-Inject: <security-definitions> -->
+servers:
+  - url: 'https://localhost:8000/api/v1/'
+    description: URL to the REST API
+tags:
+  - name: auth
+    description: Authentication
+  - name: exchange
+    description: Exchange
+  - name: user
+    description: User
+  - name: market
+    description: Market
+security:
+  - SessionCookie: []
+  - CSRFToken: []
+paths:
+  /auth/login:
+    $ref: paths/auth@login.yaml
+  /auth/logout:
+    $ref: paths/auth@logout.yaml
+  /auth/change_password:
+    $ref: paths/auth@change_password.yaml
+  /exchange/orders:
+    $ref: paths/exchange@orders.yaml
+  '/exchange/orders/{order_id}':
+    $ref: 'paths/exchange@orders@{order_id}.yaml'
+  /exchange/orders/cancel:
+    $ref: paths/exchange@orders@cancel.yaml
+  /user/balance:
+    $ref: paths/user@balance.yaml
+  /user/orders:
+    $ref: paths/user@orders.yaml
+  /user/fills:
+    $ref: paths/user@fills.yaml
+  /user/send:
+    $ref: paths/user@send.yaml
+  /user/withdrawals:
+    $ref: paths/user@withdrawals.yaml
+  /user/deposits:
+    $ref: paths/user@deposits.yaml
+  '/markets/{market_id}/candles':
+    $ref: 'paths/markets@{market_id}@candles.yaml'
+  '/markets/{market_id}/spread/{block_number}':
+    $ref: 'paths/markets@{market_id}@spread@{block_number}.yaml'
+  '/markets/{market_id}/book':
+    $ref: 'paths/markets@{market_id}@book.yaml'
+  '/markets/{market_id}/batches/{block_number}':
+    $ref: 'paths/markets@{market_id}@batches@{block_number}.yaml'
+  '/markets/{market_id}/daily':
+    $ref: 'paths/markets@{market_id}@daily.yaml'
+  /markets:
+    $ref: paths/markets.yaml
+components:
+  securitySchemes:
+    SessionCookie:
+      type: apiKey
+      in: cookie
+      name: uex_session
+    CSRFToken:
+      type: apiKey
+      in: header
+      name: X-CSRF-Token
+    OTP:
+      type: apiKey
+      in: header
+      name: X-OTP-Token

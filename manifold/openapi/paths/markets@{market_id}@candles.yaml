@@ -1,0 +1,39 @@
+get:
+  summary: Gets candlestick prices for the provided market.
+  tags:
+    - market
+  parameters:
+    - in: path
+      name: market_id
+      required: true
+      description: The ID of the market to fetch candles for.
+      schema:
+        type: string
+    - in: query
+      name: start
+      description: ISO8601 date of when to start the candle query.
+      schema:
+        type: string
+    - in: query
+      name: end
+      description: ISO8601 date of when to end the candle query.
+      schema:
+        type: string
+    - in: query
+      name: granularity
+      description: Granularity of candle data to return.
+      schema:
+        type: string
+        enum:
+          - 1m
+          - 5m
+          - 15m
+          - 60m
+          - 1d
+  responses:
+    '200':
+      description: Candle data.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CandlestickResponse.yaml

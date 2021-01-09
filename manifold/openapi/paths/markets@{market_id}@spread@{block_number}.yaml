@@ -1,0 +1,24 @@
+get:
+  summary: >-
+    Gets the batch auction state for the provided market ID and the block
+    number.
+  tags:
+    - market
+  parameters:
+    - in: path
+      name: market_id
+      required: true
+      schema:
+        type: string
+    - in: path
+      name: block_number
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: The batch state.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Spread.yaml

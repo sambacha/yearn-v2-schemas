@@ -1,0 +1,32 @@
+post:
+  summary: Cancels a group of orders.
+  tags:
+    - exchange
+  security:
+    - CSRFToken: []
+    - SessionCookie: []
+    - OTP: []
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            order_ids:
+              type: array
+              items:
+                type: string
+  responses:
+    '200':
+      description: >-
+        Bulk cancel completed. Some response may have failed; see the response
+        body itself to deal with individual errors.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              oneOf:
+                - $ref: ../components/schemas/BlockInclusionResponse.yaml
+                - $ref: ../components/schemas/BlockInclusionFailure.yaml

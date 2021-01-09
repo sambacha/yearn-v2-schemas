@@ -1,0 +1,26 @@
+post:
+  summary: Logs a user in.
+  security:
+    - CSRFToken: []
+  tags:
+    - auth
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            username:
+              type: string
+            password:
+              type: string
+  responses:
+    '204':
+      description: User successfully logged in. The session ID is returned in a cookie.
+      headers:
+        Set-Cookie:
+          schema:
+            type: string
+            example: uex_session=12345abc;
+    '403':
+      description: Authentication failed.

@@ -1,0 +1,11 @@
+get:
+  summary: Lists all markets.
+  tags:
+    - market
+  responses:
+    '200':
+      description: List of markets.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Market.yaml

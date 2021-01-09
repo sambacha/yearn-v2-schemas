@@ -1,0 +1,19 @@
+get:
+  summary: Gets all fills relevant to this user.
+  tags:
+    - user
+  parameters:
+    - $ref: ../components/parameters/StartBlock.yaml
+    - $ref: ../components/parameters/EndBlock.yaml
+  responses:
+    '200':
+      description: The user's fills.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              fills:
+                type: array
+                items:
+                  $ref: ../components/schemas/Fill.yaml

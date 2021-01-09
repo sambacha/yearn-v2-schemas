@@ -1,0 +1,11 @@
+get:
+  summary: Returns the user's balance across all supported chains.
+  tags:
+    - user
+  responses:
+    '200':
+      description: The user's balances.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Balance.yaml

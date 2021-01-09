@@ -1,0 +1,20 @@
+get:
+  summary: Gets all orders created by this user.
+  tags:
+    - user
+  parameters:
+    - $ref: ../components/parameters/Start.yaml
+  responses:
+    '200':
+      description: The user's orders.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              next_id:
+                type: string
+              orders:
+                type: array
+                items:
+                  $ref: ../components/schemas/OrderWithFills.yaml

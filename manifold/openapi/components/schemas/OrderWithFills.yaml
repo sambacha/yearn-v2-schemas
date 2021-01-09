@@ -1,0 +1,5 @@
+allOf:
+  - $ref: ./Order.yaml
+properties:
+  quantity_filled:
+    type: string

@@ -1,0 +1,6 @@
+in: query
+name: start_id
+required: false
+description: The smallest ID to include in this request.
+schema:
+  type: string

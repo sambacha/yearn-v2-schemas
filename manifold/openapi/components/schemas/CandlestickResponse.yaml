@@ -1,0 +1,20 @@
+type: object
+properties:
+  market_id:
+    type: string
+  candles:
+    type: array
+    items:
+      type: object
+      properties:
+        date:
+          type: string
+          description: ISO8601
+        open:
+          type: string
+        close:
+          type: string
+        high:
+          type: string
+        low:
+          type: string

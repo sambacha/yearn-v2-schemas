@@ -1,0 +1,49 @@
+post:
+  summary: Initiates a withdrawal of a cleared asset.
+  tags:
+    - user
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            beneficiary:
+              type: string
+              description: >-
+                The address of the recipient who will unlock funds on the MEV.
+                Hex-encoded.
+            asset_id:
+              type: string
+              description: The ID of the cleared asset to be withdrawn.
+            quantity:
+              type: string
+              description: >-
+                The amount of the cleared asset to withdraw, as represented in
+                the asset's base units.
+  responses:
+    '200':
+      description: Withdrawal successfully initiated.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Withdrawal.yaml
+get:
+  summary: Gets the user's list of withdrawals.
+  tags:
+    - user
+  responses:
+    '200':
+      description: List of withdrawals.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              owner:
+                type: string
+              withdrawals:
+                type: array
+                items:
+                  $ref: ../components/schemas/Withdrawal.yaml

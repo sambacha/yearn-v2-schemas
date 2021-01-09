@@ -1,0 +1,10 @@
+type: object
+properties:
+  id:
+    type: string
+  pair:
+    type: string
+  base_asset_id:
+    type: string
+  quote_asset_id:
+    type: string

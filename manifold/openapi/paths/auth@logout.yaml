@@ -1,0 +1,7 @@
+post:
+  summary: Logs a user out.
+  tags:
+    - auth
+  responses:
+    '204':
+      description: User successfully logged out.

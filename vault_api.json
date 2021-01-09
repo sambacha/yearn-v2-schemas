@@ -1,0 +1,91 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "VaultAPIApprovalEventArgs": {
+            "properties": {
+                "owner": {
+                    "type": "string"
+                },
+                "spender": {
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "#/definitions/default"
+                }
+            },
+            "type": "object"
+        },
+        "VaultAPIContract": {
+            "properties": {
+                "_methodABIIndex": {
+                    "additionalProperties": {
+                        "type": "number"
+                    },
+                    "type": "object"
+                },
+                "_subscriptionManager": {
+                }
+            },
+            "type": "object"
+        },
+        "VaultAPIEventArgs": {
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/VaultAPIApprovalEventArgs"
+                },
+                {
+                    "$ref": "#/definitions/VaultAPITransferEventArgs"
+                }
+            ]
+        },
+        "VaultAPIEvents": {
+            "enum": [
+                "Approval",
+                "Transfer"
+            ],
+            "type": "string"
+        },
+        "VaultAPITransferEventArgs": {
+            "properties": {
+                "from": {
+                    "type": "string"
+                },
+                "to": {
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "#/definitions/default"
+                }
+            },
+            "type": "object"
+        },
+        "default": {
+            "properties": {
+                "_isBigNumber": {
+                    "description": "Used internally to identify a BigNumber instance.",
+                    "enum": [
+                        true
+                    ],
+                    "type": "boolean"
+                },
+                "c": {
+                    "description": "The coefficient of the value of this BigNumber, an array of base 1e14 integer numbers, or null.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "e": {
+                    "description": "The exponent of the value of this BigNumber, an integer number, -1000000000 to 1000000000, or null.",
+                    "type": "number"
+                },
+                "s": {
+                    "description": "The sign of the value of this BigNumber, -1, 1, or null.",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
+

@@ -1,0 +1,436 @@
+{
+  "definitions": {
+    "VaultApprovalEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "owner": {
+          "nullable": false,
+          "type": "string"
+        },
+        "spender": {
+          "nullable": false,
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/default"
+        }
+      },
+      "type": "object"
+    },
+    "VaultContract": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "_methodABIIndex": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "nullable": false,
+          "type": "object"
+        },
+        "_subscriptionManager": {}
+      },
+      "type": "object"
+    },
+    "VaultEmergencyShutdownEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "active": {
+          "nullable": false,
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "VaultEventArgs": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/VaultTransferEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultApprovalEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultStrategyAddedEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultStrategyReportedEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultUpdateGovernanceEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultUpdateManagementEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultUpdateGuestListEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultUpdateRewardsEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultUpdateDepositLimitEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultUpdatePerformanceFeeEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultUpdateManagementFeeEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultUpdateGuardianEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultEmergencyShutdownEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultUpdateWithdrawalQueueEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultStrategyUpdateDebtLimitEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultStrategyUpdateRateLimitEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultStrategyUpdatePerformanceFeeEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultStrategyMigratedEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultStrategyRevokedEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultStrategyRemovedFromQueueEventArgs"
+        },
+        {
+          "$ref": "#/definitions/VaultStrategyAddedToQueueEventArgs"
+        }
+      ]
+    },
+    "VaultEvents": {
+      "enum": [
+        "Approval",
+        "EmergencyShutdown",
+        "StrategyAdded",
+        "StrategyAddedToQueue",
+        "StrategyMigrated",
+        "StrategyRemovedFromQueue",
+        "StrategyReported",
+        "StrategyRevoked",
+        "StrategyUpdateDebtLimit",
+        "StrategyUpdatePerformanceFee",
+        "StrategyUpdateRateLimit",
+        "Transfer",
+        "UpdateDepositLimit",
+        "UpdateGovernance",
+        "UpdateGuardian",
+        "UpdateGuestList",
+        "UpdateManagement",
+        "UpdateManagementFee",
+        "UpdatePerformanceFee",
+        "UpdateRewards",
+        "UpdateWithdrawalQueue"
+      ],
+      "nullable": false,
+      "type": "string"
+    },
+    "VaultStrategyAddedEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "debtLimit": {
+          "$ref": "#/definitions/default"
+        },
+        "performanceFee": {
+          "$ref": "#/definitions/default"
+        },
+        "rateLimit": {
+          "$ref": "#/definitions/default"
+        },
+        "strategy": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultStrategyAddedToQueueEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "strategy": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultStrategyMigratedEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "newVersion": {
+          "nullable": false,
+          "type": "string"
+        },
+        "oldVersion": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultStrategyRemovedFromQueueEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "strategy": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultStrategyReportedEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "debtAdded": {
+          "$ref": "#/definitions/default"
+        },
+        "debtLimit": {
+          "$ref": "#/definitions/default"
+        },
+        "gain": {
+          "$ref": "#/definitions/default"
+        },
+        "loss": {
+          "$ref": "#/definitions/default"
+        },
+        "strategy": {
+          "nullable": false,
+          "type": "string"
+        },
+        "totalDebt": {
+          "$ref": "#/definitions/default"
+        },
+        "totalGain": {
+          "$ref": "#/definitions/default"
+        },
+        "totalLoss": {
+          "$ref": "#/definitions/default"
+        }
+      },
+      "type": "object"
+    },
+    "VaultStrategyRevokedEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "strategy": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultStrategyUpdateDebtLimitEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "debtLimit": {
+          "$ref": "#/definitions/default"
+        },
+        "strategy": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultStrategyUpdatePerformanceFeeEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "performanceFee": {
+          "$ref": "#/definitions/default"
+        },
+        "strategy": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultStrategyUpdateRateLimitEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "rateLimit": {
+          "$ref": "#/definitions/default"
+        },
+        "strategy": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultTransferEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "receiver": {
+          "nullable": false,
+          "type": "string"
+        },
+        "sender": {
+          "nullable": false,
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/definitions/default"
+        }
+      },
+      "type": "object"
+    },
+    "VaultUpdateDepositLimitEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "depositLimit": {
+          "$ref": "#/definitions/default"
+        }
+      },
+      "type": "object"
+    },
+    "VaultUpdateGovernanceEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "governance": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultUpdateGuardianEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "guardian": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultUpdateGuestListEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "guestList": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultUpdateManagementEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "management": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultUpdateManagementFeeEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "managementFee": {
+          "$ref": "#/definitions/default"
+        }
+      },
+      "type": "object"
+    },
+    "VaultUpdatePerformanceFeeEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "performanceFee": {
+          "$ref": "#/definitions/default"
+        }
+      },
+      "type": "object"
+    },
+    "VaultUpdateRewardsEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "rewards": {
+          "nullable": false,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "VaultUpdateWithdrawalQueueEventArgs": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "queue": {
+          "items": {
+            "nullable": false,
+            "type": "string"
+          },
+          "nullable": false,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "default": {
+      "additionalProperties": true,
+      "nullable": false,
+      "properties": {
+        "_isBigNumber": {
+          "description": "Used internally to identify a BigNumber instance.",
+          "enum": [
+            true
+          ],
+          "nullable": false,
+          "type": "boolean"
+        },
+        "c": {
+          "description": "The coefficient of the value of this BigNumber, an array of base 1e14 integer numbers, or null.",
+          "items": {
+            "nullable": false,
+            "type": "number"
+          },
+          "nullable": false,
+          "type": "array"
+        },
+        "e": {
+          "description": "The exponent of the value of this BigNumber, an integer number, -1000000000 to 1000000000, or null.",
+          "nullable": false,
+          "type": "number"
+        },
+        "s": {
+          "description": "The sign of the value of this BigNumber, -1, 1, or null.",
+          "nullable": false,
+          "type": "number"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
